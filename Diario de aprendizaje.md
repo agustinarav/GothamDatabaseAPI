@@ -11,18 +11,17 @@ Por ejemplo, **/comics** para obtener todos los cómics o **/comics/<int:comic_i
 
 ### El uso de request y jsonify: 
 El formato estándar para intercambiar datos en las APIs es JSON.  
-**request.json** permite acceder al cuerpo de una solicitud HTTP en formato JSON. Se usa para obtener los datos enviados al servidor en solicitudes POST o PUT.
+Utilizando **request.json** es posible acceder al cuerpo de una solicitud HTTP en formato JSON. Se usa para obtener los datos enviados al servidor en solicitudes POST o PUT.
 Ejemplo: **data = request.json** toma los datos JSON enviados en la solicitud y los convierte en un diccionario de Python.  
 Después de manipular los datos, **jsonify()** convierte la respuesta de la API a formato JSON antes de enviarla a Postman. Esto garantiza que la respuesta siga el estándar JSON para que Postman pueda interpretarla correctamente.
 
 ### Variables de ruta:
-Las variables de ruta son valores dinámicos en la URL, como <int:comic_id>, que permiten obtener información específica de la URL y usarla en el código.
+Las variables de ruta son valores dinámicos en la URL, como **<int:comic_id>**, que permiten obtener información específica de la URL y usarla en el código.
 En la ruta **/comics/<int:comic_id>**, **comic_id** es un parámetro que tomará el valor del número en la URL (como **/comics/2**), permitiendo al servidor saber qué cómic se está solicitando o actualizando.
 
 ### Errores desde el backend: 
-Asociación directa entre código y request de los estados HTTP (200, 201, 400, 404, 500, etc.).
-Puede analizar logs y mensajes de error directamente en la consola.
-Prqueñas pruebas implementando mensajes de error más descriptivos. Por ejemplo: "El campo 'nombre' es obligatorio" en lugar de un simple "400 Bad Request".
+Realicé una asociación de aprendizaje entre código y request de los estados HTTP (200, 201, 400, 404, 500, etc.).
+Puede analizar logs y mensajes de error directamente en la consola. Tambíen realizar pequeñas pruebas implementando mensajes de error más descriptivos. Por ejemplo: "El campo 'nombre' es obligatorio" en lugar de un simple "400 Bad Request".
 
 ---
 
