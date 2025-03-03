@@ -1,0 +1,29 @@
+Feature: Gestión de cómics
+    Como usuario o administrador,
+    Quiero poder gestionar cómics en la biblioteca,
+    Para poder consultar, agregar, actualizar o eliminar cómics según sea necesario.
+
+Scenario: Consulta de todos los cómics
+    Dado que hay cómics disponibles en la base de datos
+    Cuando realizo una consulta para obtener la lista de cómics
+    Entonces debería obtener una lista de cómics
+
+Scenario: Consultar un cómic específico
+    Dado que existe un cómic con el ID "1"
+    Cuando realizo una consulta para obtener los detalles del cómic con ID "1"
+    Entonces debería obtener los detalles del cómic con ID "1"
+
+Scenario: Crear un cómic
+    Dado que tengo los datos válidos para un nuevo cómic
+    Cuando realizo una solicitud para crear un cómic con esos datos
+    Entonces el cómic debería ser creado exitosamente
+
+Scenario: Actualizar un cómic existente
+    Dado que tengo los datos actualizados de un cómic con ID "1"
+    Cuando realizo una solicitud para actualizar el cómic con ID "1"
+    Entonces los detalles del cómic deberían ser actualizados correctamente
+
+Scenario: Eliminar un cómic
+    Dado que existe un cómic con ID "1"
+    Cuando realizo una solicitud para eliminar el cómic con ID "1"
+    Entonces el cómic debería ser eliminado exitosamente y no aparecer en la lista
