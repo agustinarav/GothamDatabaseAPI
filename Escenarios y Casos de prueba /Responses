@@ -1,0 +1,131 @@
+
+GET  Obtener lista de cómics
+Descripción: Devuelve lista de cómics cargados
+Endpoint: /comics 
+Response: 200 ok
+
+{
+  "comics": [
+    {
+      "author": "Alan Moore", 
+      "id": 1, 
+      "title": "The Killing Joke", 
+      "year": 1988
+    }, 
+    {
+      "author": "Frank Miller", 
+      "id": 2, 
+      "title": "Batman: Year One", 
+      "year": 1987
+    }, 
+    {
+      "author": "Grant Morrison", 
+      "id": 3, 
+      "title": "Arkham Asylum: A Serious House on Serious Earth", 
+      "year": 1989
+    }
+  ]
+}
+
+
+
+
+GET Obtener un cómic por ID
+Descripción: Devuelve un cómic por ID
+Endpoint: /comics/comic_id
+
+Ejemplo:
+Request: .../comics/1
+Response: 200 ok
+
+{
+  "comic": {
+    "author": "Alan Moore", 
+    "id": 1, 
+    "title": "The Killing Joke", 
+    "year": 1988
+  }
+}
+
+
+
+
+POST Obtener un cómic por ID
+Descripción: Devuelve un cómic por ID
+Para poder agregar un cómic se debe pasar en el body en formato JSON los pares clave/valor:
+Endpoint: /comics
+
+
+Ejemplo: 
+Request: .../comics
+Body: 
+
+ {
+    "title": "The Long Halloween",
+    "author": "Jeph Loeb",
+    "year": 1996
+    }   
+
+
+Response: 201 Created
+
+{
+  "comic": {
+    "author": "Jeph Loeb", 
+    "id": 4, 
+    "title": "The Long Halloween", 
+    "year": 1996
+  }, 
+  "message": "Comic added"
+}
+
+
+
+
+PUT Actualizar cómic
+Descripción: Actualiza un cómic con el id solicitado
+Para poder actualizar un registro se necesita pasar el id en el body en formato JSON y los tres pares clave/valor del registro (id, title, year).
+Endpoint: /comics/id
+
+Ejemplo: 
+Request: .../comics/3
+(cambio de fecha de 1989 a 1988) 
+
+Body: 
+
+{
+    "author": "Grant Morrison",
+            "id": 3,
+            "title": "Arkham Asylum: A Serious House on Serious Earth",
+            "year": 1989
+    
+    }   
+
+
+Response: 200 OK
+
+{
+  "comic": {
+    "author": "Grant Morrison", 
+    "id": 3, 
+    "title": "Arkham Asylum: A Serious House on Serious Earth", 
+    "year": 1988
+  }, 
+  "message": "Comic updated"
+}
+
+
+
+DELATE Eliminar cómic
+Descripción: Elimina un cómic con el id solicitado
+Para poder eliminar un registro se necesita pasar el id en la solicitud.
+Endpoint: /comics/id
+
+Ejemplo: 
+Request: .../comics/4
+
+Response: 200 OK 
+
+{
+    "message": "Comic deleted successfully"
+}
