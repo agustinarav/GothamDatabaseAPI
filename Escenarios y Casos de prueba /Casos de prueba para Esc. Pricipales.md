@@ -11,15 +11,19 @@
 | ID  | TC-API-001 |
 | ------------- | ------------- |
 | **Título** | Obtener cómics  |
-| **Descripción** |   |
-| **Precondiciones**  | Content Cell  |
-| **Endpoint**  | Content Cell  |
-| **Método HTTPP**  | Content Cell  |
-| **Headers**  | Content Cell  |
-| **Curl**  | Content Cell  |
-| **Body (JSON)**  | Content Cell  |
-| **Datos de entrada** | Content Cell  |
-| **Pasos**  | Content Cell  |
-| **Respuesta esperada**  | Content Cell  |
-| **Respuesta obtenida**  | Content Cell  |
-| **Estado**  | Content Cell  |
+| **Descripción** | Consulta para obtener la lista de cómics  |
+| **Precondiciones**  | La API debe estar en ejecución y debe haber cómics registrados |
+| **Endpoint**  |  /comics  |
+| **Método HTTPP**  | GET  |
+| **Headers**  |   |
+| **Curl**  |   |
+| **Body (JSON)**  | -  |
+| **Datos de entrada** | -|
+| **Pasos** | **Descripción** |
+| 1 | Enviar GET /comics/1 |
+| 2 | Verificar que el código de respuesta sea 200 OK |
+| 3 | Validar que los datos de los cómic en la BDD retornados sean correctos para: id, title, author, year|
+| **Respuesta esperada**  | Código 200 OK, JSON |
+| **Respuesta obtenida**  |  |
+| **Estado**  |   |
+
