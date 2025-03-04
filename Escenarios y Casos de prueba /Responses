@@ -50,13 +50,15 @@ Response: 200 ok
 
 
 
-POST Obtener un cómic por ID
-Descripción: Devuelve un cómic por ID
-Para poder agregar un cómic se debe pasar en el body en formato JSON los pares clave/valor:
+POST Crear cómic con datos válidos
+Descripción: Crea un nuevo cómic en la API
+Para poder agregar un cómic se debe pasar en el body en formato JSON los pares clave/valor.
 Endpoint: /comics
 
 
 Ejemplo: 
+Se agrega información para un nuevo cómic con title, author y year. 
+
 Request: .../comics
 Body: 
 
@@ -88,16 +90,16 @@ Para poder actualizar un registro se necesita pasar el id en el body en formato 
 Endpoint: /comics/id
 
 Ejemplo: 
-Request: .../comics/3
-(cambio de fecha de 1989 a 1988) 
+Se desea cambiar la fecha (1989 a 1988)  para cómic con ID 3
 
+Request: .../comics/3
 Body: 
 
 {
     "author": "Grant Morrison",
             "id": 3,
             "title": "Arkham Asylum: A Serious House on Serious Earth",
-            "year": 1989
+            "year": 1988
     
     }   
 
@@ -122,6 +124,7 @@ Para poder eliminar un registro se necesita pasar el id en la solicitud.
 Endpoint: /comics/id
 
 Ejemplo: 
+Se desea eliminar cómic con ID 4
 Request: .../comics/4
 
 Response: 200 OK 
