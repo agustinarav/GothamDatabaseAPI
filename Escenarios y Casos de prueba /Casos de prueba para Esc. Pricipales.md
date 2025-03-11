@@ -13,12 +13,12 @@
 
 **PUT** - Actualizar cómic
 - **TC-API-007** Actualizar parámetro existente por ID de cómic
-- **TC-API-008** Actualizar un cómic con un ID no existente
+- **TC-API-008** Actualizar un cómic con ID no existente
 
 
 **DELATE** - Eliminar cómic
-- **TC-API-** Eliminar existente
-- **TC-API-** Intentar eliminar inexistente
+- **TC-API- 009** Eliminar cómic existente
+- **TC-API-010** Intentar eliminar cómic inexistente
 
 
 [📄 Ver Responses JSON para:](https://github.com/agustinarav/GothamDatabaseAPI/blob/main/Escenarios%20y%20Casos%20de%20prueba%20/Responses)
@@ -190,10 +190,10 @@
 
 ---
 
-| ID TC-API-008 | **Título:** Actualizar un cómic con un ID no existente |
+| ID TC-API-008 | **Título:** Actualizar un cómic con ID no existente |
 | ------------- | ------------- |
 | **Método HTTPP**  | PUT  |
-| **Descripción** | Actualizar un cómic con un ID no existente |
+| **Descripción** | Actualizar un cómic con ID no existente |
 | **Precondiciones**  | **Descripción**  |
 | 1 | La API debe estar en ejecución |
 | 2|  Se debe elegir un ID inexistente en la BDD para realizar la solicitud |
@@ -213,24 +213,46 @@
 
 ---
 
-| ID  TC-API-001 | **Título:**  |
+| ID  TC-API-009 | **Título: Eliminar cómic existente **  |
 | ------------- | ------------- |
-| **Descripción** |  |
+| **Descripción** | Eliminar cómic existente de la BDD |
 | **Precondiciones**  | **Descripción** |
 | 1  | La API debe estar en ejecución |
 | 2  | Debe haber cómics registrados |
-| **Endpoint**  |  /comics  |
+| 3  | El ID del cómic debe formar parte de la lista de cómics en la BDD |
+| **Endpoint**  |  /comics/:id  |
 | **Método HTTPP**  |  DELATE  |
-| **Headers**  | Content-Type: , Content-Length:   |
+| **Headers**  | Content-Type: application/json, Content-Length: 46  |
 | **Curl**  |   |
-| **Body (JSON)**  |   |
-| **Datos de entrada** |  |
+| **Body (JSON)**  |  - |
+| **Datos de entrada** | - |
 | **Pasos** | **Descripción** |
-| 1 | Enviar GET /comics |
-| 2 | Verificar que el código de respuesta sea  |
-| 3 | Validar que los datos |
-| **Respuesta esperada**  | |
-| **Respuesta obtenida**  |   |
-| **Estado**  |    |
+| 1 | Enviar DELATE /comics/3 |
+| 2 | Verificar que el código de respuesta sea 200 OK |
+| 3 |  Validar que la respuesta para el cómic con ID 3 es "message": "Comic deleted successfully"|
+| **Respuesta esperada**  | 200 OK  |
+| **Respuesta obtenida**  |  200 OK   |
+| **Estado**  | **APROBADO**   |
 
+---
 
+| ID  TC-API-010 | **Título: Intentar eliminar cómic inexistente**  |
+| ------------- | ------------- |
+| **Descripción** | Eliminar cómic con ID inexistente de la BDD |
+| **Precondiciones**  | **Descripción** |
+| 1  | La API debe estar en ejecución |
+| 2  | Debe haber cómics registrados |
+| 3  | El ID del cómic NO debe formar parte de la lista de cómics en la BDD |
+| **Endpoint**  |  /comics/:id  |
+| **Método HTTPP**  |  DELATE  |
+| **Headers**  | Content-Type: application/json, Content-Length: 46  |
+| **Curl**  |   |
+| **Body (JSON)**  |  - |
+| **Datos de entrada** | - |
+| **Pasos** | **Descripción** |
+| 1 | Enviar DELATE /comics/3 |
+| 2 | Verificar que el código de respuesta sea 404 NOT FOUND |
+| 3 |  Validar que la respuesta para el cómic con ID 3 es "message": "error": "Comic not found"|
+| **Respuesta esperada**  | 404 NOT FOUND  |
+| **Respuesta obtenida**  |  404 NOT FOUND  |
+| **Estado**  | **APROBADO**   |
