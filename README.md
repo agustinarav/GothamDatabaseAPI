@@ -11,7 +11,7 @@ Este proyecto es una API simple basada en Flask que permite gestionar informaci�
 ---
 
 ## Diario de aprendizaje sobre la API de Batman
-Durante el desarrollo y prueba de una API en Flask para gestionar cómics de Batman, fui aprendiendo y comprendiendo distintos conceptos clave de programación y testing.
+Durante el desarrollo y prueba de la API en Flask para gestionar cómics de Batman, fui aprendiendo y comprendiendo distintos conceptos clave de programación y testing.
 
 [📄 Ver documento completo - Diario de Aprendizaje](Diario%20de%20aprendizaje.md)
 
@@ -26,11 +26,13 @@ GothamDatabaseAPI es una API RESTful diseñada para gestionar una pequeña base 
 **PUT /comics/{id}:** Actualiza un cómic existente por su ID.  
 **DELETE /comics/{id}:** Elimina un cómic por su ID.  
 
-[📄 Ver Responses](https://github.com/agustinarav/GothamDatabaseAPI/blob/main/Escenarios%20y%20Casos%20de%20prueba%20/Responses)
-
 [📄 Ver Gherkin - BDD ](https://github.com/agustinarav/GothamDatabaseAPI/blob/main/Escenarios%20y%20Casos%20de%20prueba%20/Escenarios%20Principales)
 
 [📄 Ver Test suite ](https://github.com/agustinarav/GothamDatabaseAPI/blob/main/Escenarios%20y%20Casos%20de%20prueba%20/Casos%20de%20prueba%20para%20Esc.%20Pricipales.md)
+
+[📄 Ver Responses](https://github.com/agustinarav/GothamDatabaseAPI/blob/main/Escenarios%20y%20Casos%20de%20prueba%20/Responses)
+
+
 
 
 
