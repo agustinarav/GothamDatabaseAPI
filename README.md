@@ -20,11 +20,11 @@ Durante el desarrollo y prueba de una API en Flask para gestionar cómics de Bat
 ## Documentación API 
 GothamDatabaseAPI es una API RESTful diseñada para gestionar una pequeña base de datos de cómics de Batman, permitiendo a los usuarios recuperar, filtrar, agregar, actualizar y eliminar registros de cómics.
 
-- GET - Obtener cómics
-- GET - Obtener uno
-- POST - Crear cómic
-- PUT - Actualizar cómic
-- DELETE - Eliminar cómic
+### Los siguientes son los endpoints disponibles para interactuar con la API:
+**GET /comics:** Obtiene la lista de cómics disponibles.  
+**POST /comics:** Crea un nuevo cómic.  
+**PUT /comics/{id}:** Actualiza un cómic existente por su ID.  
+**DELETE /comics/{id}:** Elimina un cómic por su ID.  
 
 [📄 Ver Responses](https://github.com/agustinarav/GothamDatabaseAPI/blob/main/Escenarios%20y%20Casos%20de%20prueba%20/Responses)
 
