@@ -34,7 +34,7 @@
 
 | ID  TC-API-001 | **Título:** Obtener todos los cómics  |
 | ------------- | ------------- |
-| **Método HTTPP**  | GET  |
+| **Método HTTP**  | GET  |
 | **Descripción** | Consulta para obtener la lista de cómics  |
 | **Precondiciones**  | **Descripción** |
 | 1  | La API debe estar en ejecución |
@@ -56,7 +56,7 @@
 
 | ID TC-API-002 | **Título:** Obtener cómic por ID  |
 | ------------- | ------------- |
-| **Método HTTPP**  | GET  |
+| **Método HTTP**  | GET  |
 | **Descripción** | Consulta para obtener un cómic por su ID |
 | **Precondiciones**  | **Descripción**  |
 | 1 | La API debe estar en ejecución |
@@ -79,7 +79,7 @@
 
 | ID TC-API-003 | **Título:** Intentar obtener ID inexistente  |
 | ------------- | ------------- |
-| **Método HTTPP**  | GET  |
+| **Método HTTP**  | GET  |
 | **Descripción** | Consulta para obtener un cómic por un ID inexistente |
 | **Precondiciones**  | **Descripción**  |
 | 1 | La API debe estar en ejecución |
@@ -102,7 +102,7 @@
 
 | ID TC-API-004 | **Título:** Crear un nuevo cómic en la API  |
 | ------------- | ------------- |
-| **Método HTTPP**  | POST  |
+| **Método HTTP**  | POST  |
 | **Descripción** | Crear un nuevo cómic en la API |
 | **Precondiciones**  | **Descripción**  |
 | 1 | La API debe estar en ejecución |
@@ -124,7 +124,7 @@
 
 | ID TC-API-005 | **Título:** Crear cómic con datos obligatorios vacíos  |
 | ------------- | ------------- |
-| **Método HTTPP**  | POST  |
+| **Método HTTP**  | POST  |
 | **Descripción** | Crear cómic con datos obligatorios vacíos |
 | **Precondiciones**  | **Descripción**  |
 | 1 | La API debe estar en ejecución |
@@ -146,7 +146,7 @@
 
 | ID TC-API-006 | **Título:** Crear cómic con parámetros del cuerpo no incluídos en el código |
 | ------------- | ------------- |
-| **Método HTTPP**  | POST  |
+| **Método HTTP**  | POST  |
 | **Descripción** | Crear cómic con parámetros en el cuerpo que no estén permitidos en el código |
 | **Precondiciones**  | **Descripción**  |
 | 1 | La API debe estar en ejecución |
@@ -169,7 +169,7 @@
 
 | ID TC-API-007 | **Título:** Actualizar un parámetro de un cómic existente por su ID |
 | ------------- | ------------- |
-| **Método HTTPP**  | PUT  |
+| **Método HTTP**  | PUT  |
 | **Descripción** | Actualizar un parámetro de un cómic utilizando solo los campos permitidos en el código. |
 | **Precondiciones**  | **Descripción**  |
 | 1 | La API debe estar en ejecución |
@@ -192,7 +192,7 @@
 
 | ID TC-API-008 | **Título:** Actualizar un cómic con ID no existente |
 | ------------- | ------------- |
-| **Método HTTPP**  | PUT  |
+| **Método HTTP**  | PUT  |
 | **Descripción** | Actualizar un cómic con ID no existente |
 | **Precondiciones**  | **Descripción**  |
 | 1 | La API debe estar en ejecución |
@@ -221,7 +221,7 @@
 | 2  | Debe haber cómics registrados |
 | 3  | El ID del cómic debe formar parte de la lista de cómics en la BDD |
 | **Endpoint**  |  /comics/:id  |
-| **Método HTTPP**  |  DELATE  |
+| **Método HTTP**  |  DELATE  |
 | **Headers**  | Content-Type: application/json, Content-Length: 46  |
 | **Curl**  |   |
 | **Body (JSON)**  |  - |
@@ -244,7 +244,7 @@
 | 2  | Debe haber cómics registrados |
 | 3  | El ID del cómic NO debe formar parte de la lista de cómics en la BDD |
 | **Endpoint**  |  /comics/:id  |
-| **Método HTTPP**  |  DELATE  |
+| **Método HTTP**  |  DELATE  |
 | **Headers**  | Content-Type: application/json, Content-Length: 46  |
 | **Curl**  |   |
 | **Body (JSON)**  |  - |
