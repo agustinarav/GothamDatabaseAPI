@@ -4,6 +4,8 @@ Request: /comics
 Scripts
 Prerequest: 
 
+Post response: 
+
 pm.test("La respuesta es JSON válido", function () {
     pm.expect(() => pm.response.json()).not.to.throw();
 });
