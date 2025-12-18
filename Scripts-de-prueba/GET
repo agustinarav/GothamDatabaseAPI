@@ -1,1 +1,106 @@
 Método GET 
+
+Request: /comics 
+Scripts
+Prerequest: 
+
+pm.test("La respuesta es JSON válido", function () {
+    pm.expect(() => pm.response.json()).not.to.throw();
+});
+
+
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);  
+});
+
+/* ---------------------------------------------* */
+
+//pruebas con ID
+ 
+pm.test("No faltan propiedades obligatorias", function () {
+    const comics = pm.response.json().comics || [];
+
+    const camposRequeridos = ["id", "title", "author", "year"];
+
+    comics.forEach(comic => {
+        camposRequeridos.forEach(campo => {
+            pm.expect(comic).to.have.property(campo);
+        });
+    });
+});
+
+pm.test("Verificar IDs existentes", function () {
+    let jsonData = pm.response.json();
+    let comics = jsonData.comics || [];
+
+    let idsEsperados = [1,2,3];
+    idsEsperados.forEach(id => {
+        let existe = comics.some(c => c.id === id);
+        pm.expect(existe, `El ID ${id} debe existir`).to.be.true;
+    });
+});
+
+pm.test("El ID del primer comic es mayor a cero", function () {
+    const comics = pm.response.json().comics || [];
+    const comic = comics[0] || {};
+
+    pm.expect(comic.id).to.be.above(0);
+});
+      
+
+/* ---------------------------------------------* */
+
+    pm.test("La respuesta contiene las propiedades esperadas", function () {
+    const jsonData = pm.response.json();
+    const comics = jsonData.comics || [];
+
+    const camposRequeridos = ["id", "title", "author", "year"];
+
+    comics.forEach(comic => {
+        camposRequeridos.forEach(campo => {
+            pm.expect(comic).to.have.property(campo);
+        });
+    });
+});
+
+
+pm.test("Las propiedades no vienen vacías", function () {
+    const comics = pm.response.json().comics || [];
+    const comic = comics[0] || {};
+        
+    pm.expect(comic.title).to.not.be.empty;
+    pm.expect(comic.author).to.not.be.empty;
+    pm.expect(comic.year).to.not.be.null;
+    pm.expect(comic.id).to.not.be.null;
+});
+
+// validacion de tipos 
+
+pm.test("Validación de tipos del comic", function () {
+    const comics = pm.response.json().comics || [];
+    const comic = comics[0] || {}; // primer comic
+
+    pm.expect(comic.id).to.be.a("number");
+    pm.expect(comic.title).to.be.a("string");
+    pm.expect(comic.author).to.be.a("string");
+    pm.expect(comic.year).to.be.a("number");
+});
+
+// valores básicos
+
+pm.test("Title y Author no deben ser vacíos", function () {
+    const comics = pm.response.json().comics || [];
+    const comic = comics[0] || {};
+
+    const campos = ["title", "author"];
+
+    campos.forEach(campo => {        
+        pm.expect(comic[campo].trim()).to.not.equal("");
+    });
+});
+
+/* ---------------------------------------------* */
+
+pm.test("Response time is less than 100ms", function () {
+    pm.expect(pm.response.responseTime).to.be.below(100);
+});
