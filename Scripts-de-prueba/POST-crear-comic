@@ -1,0 +1,92 @@
+Método GET 
+
+Request: /comics 
+Scripts
+Prerequest: 
+
+// año entre 1900 y 2000
+let yearRandom = Math.floor(Math.random() * (2000 - 1900 + 1)) + 1900;
+
+pm.environment.set("yearRandom", yearRandom);
+
+/* ---------------------------------------------* */
+
+Post response: 
+
+pm.test("Status code is 201", function () {
+    pm.response.to.have.status(201);
+});
+
+
+pm.test("Guardar datos del comic random creado", function () {
+    let jsonData = pm.response.json();
+    let comic = jsonData.comic;
+
+    // Guarda cada propiedad en variables de entorno
+    for (const propiedad in comic) {
+        pm.environment.set(`comic_${propiedad}`, comic[propiedad]);
+    }
+
+    console.log("Variables guardadas:", {
+        id: pm.environment.get("comic_id"),
+        title: pm.environment.get("comic_title"),
+        author: pm.environment.get("comic_author"),
+        year: pm.environment.get("comic_year")
+    });
+});
+
+/* ---------------------------------------------* */
+
+
+    pm.test("La respuesta contiene las propiedades esperadas", function () {
+    const jsonData = pm.response.json();
+    const comics = jsonData.comics || [];
+
+    const camposRequeridos = ["id", "title", "author", "year"];
+
+    comics.forEach(comic => {
+        camposRequeridos.forEach(campo => {
+            pm.expect(comic).to.have.property(campo);
+        });
+    });
+});
+
+
+pm.test("Las propiedades no vienen vacías", function () {
+    const comic = pm.response.json().comic;
+        
+    pm.expect(comic.title).to.not.be.empty;
+    pm.expect(comic.author).to.not.be.empty;
+    pm.expect(comic.year).to.not.be.null;
+    pm.expect(comic.id).to.not.be.null;
+});
+
+// validacion de tipos 
+
+pm.test("Validación de tipos del comic", function () {
+    const comic = pm.response.json().comic;
+
+    pm.expect(comic.id).to.be.a("number");
+    pm.expect(comic.title).to.be.a("string");
+    pm.expect(comic.author).to.be.a("string");
+    pm.expect(comic.year).to.be.a("number");
+});
+
+// valores básicos
+
+pm.test("Title y Author no deben ser vacíos", function () {
+    const comic = pm.response.json().comic;
+
+    const campos = ["title", "author"];
+
+    campos.forEach(campo => {
+        pm.expect(comic[campo].trim()).to.not.equal("");
+    });
+});
+
+/* ---------------------------------------------* */
+console.log (pm.response.json().comics);
+
+
+
+
